@@ -1,7 +1,6 @@
 /* Style form box container */
 .box {
   flex: 1;
-  height: 300px;
   border-radius: .5rem;
   border: 2px solid #f0f0f0;
   box-shadow: 0 0 30px #5a5a5a10;
@@ -15,4 +14,86 @@
   text-align: center;
   padding-bottom: 1rem;
   border-bottom: 2px solid #f0f0f0;
+}
+
+/* Style form */
+.form {
+  width: 100%;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr  1fr;
+  grid-template-areas: 
+  'personalEmail name'
+  'email phone'
+  'street houseNumber'
+  'acomplishment district'
+  'CEP cityUF';
+  column-gap: 2rem;
+  row-gap: 1rem;
+}
+
+.personalEmail {
+  grid-area: personalEmail;
+}
+.name {
+  grid-area: name;
+}
+.email {
+  grid-area: email;
+}
+.phone {
+  grid-area: phone;
+}
+.street {
+  grid-area: street;
+}
+.houseNumber {
+  grid-area: houseNumber;
+}
+.acomplishment {
+  grid-area: acomplishment;
+}
+.district {
+  grid-area: district;
+}
+.CEP {
+  grid-area: CEP;
+}
+.city {
+  grid-area: city;
+}
+.UF {
+  grid-area: UF;
+}
+.form .cityUF {
+  grid-area: cityUF;
+}
+.form .cityUF .inputBox:first-child{
+  flex: 1;
+}
+.form .cityUF .inputBox + .inputBox{
+  margin-left: 1rem;
+  width: 35%;
+}
+
+/* Style input */
+.inputBox input {
+  border-radius: .5rem;
+  border: 2px solid #e0e0e0;
+  padding: .5rem;
+  transition: 0.2s;
+  font-size: .875rem;
+  color: #626262;
+}
+
+.inputBox input:hover {
+  box-shadow: 0 0 1px 2px var(--color-success);
+}
+
+.inputBox input:focus {
+  box-shadow: 0 0 1px 2px var(--color-primary);
+}
+
+.inputBox input::placeholder {
+  color: #bbb;
 }
