@@ -23,12 +23,10 @@
 /* Button styles */
 .button {
   padding: 1rem 2rem;
-  margin-right: 1rem;
   outline: none;
   border: none;
   border-radius: .625rem;
   font: 400 1rem var(--font-primary);
-  background: var(--color-primary);
   color: #FFF;
   cursor: pointer;
   transition: 0.2s;
@@ -36,18 +34,41 @@
   text-align: start;
 }
 
-.button + .button {
-  margin-top: .5rem;
-}
-
-.button:hover {
-  background: var(--color-primary-hover);
-  transition: none;
-}
-
 .button:active {
   filter: opacity(.5);
 }
+
+.button:hover {
+  transform: translateX(1rem);
+}
+
+.buttonDefault {
+  margin-right: 1rem;
+  background: var(--color-primary);
+}
+
+.buttonDefault + .buttonDefault {
+  margin-top: .5rem;
+}
+
+.buttonDefault:hover {
+  background: var(--color-primary-hover);
+}
+
+
+
+/* Submit Button */
+.buttonSubmit {
+  background: var(--color-success);
+  margin-top: 1rem;
+}
+
+.buttonSubmit:hover {
+  background: var(--color-success-hover);
+  transition: none;
+}
+
+
 
 /* My own display flex "framework" */
 .flex {
@@ -64,4 +85,12 @@
 
 .crossCenter {
   align-items: center;
+}
+
+.mainEnd {
+  justify-content: flex-end;
+}
+
+.crossEnd {
+  align-items: flex-end;
 }
