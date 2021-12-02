@@ -1,15 +1,36 @@
 @import url('./_variables.css');
 @import url('./_forms.css');
 @import url('./_reset.css');
+@import url('./_usersView.css');
 
 .container {
   padding: 0 8rem 4rem 8rem;
 }
 
+/* Style navbar */
 .navbar {
   margin: 2rem 8rem;
 }
 
+/* Style form box container */
+.box {
+  flex: 1;
+  border-radius: .5rem;
+  border: 2px solid #f0f0f0;
+  box-shadow: 0 0 30px #5a5a5a10;
+}
+
+/* Style box title */
+.box > .title {
+  width: 100%;
+  height: fit-content;
+  margin-top: 16px;
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+/* Style fonts */
 .title {
   color: var(--color-primary);
   font: 700 2rem var(--font-primary);
@@ -39,7 +60,7 @@
 }
 
 .button:hover {
-  transform: translateX(1rem);
+  transform: translateX(-1rem);
 }
 
 .buttonDefault {
@@ -55,8 +76,6 @@
   background: var(--color-primary-hover);
 }
 
-
-
 /* Submit Button */
 .buttonSubmit {
   background: var(--color-success);
@@ -67,8 +86,6 @@
   background: var(--color-success-hover);
   transition: none;
 }
-
-
 
 /* My own display flex "framework" */
 .flex {
