@@ -1,0 +1,18 @@
+/* Style form box container */
+.box {
+  flex: 1;
+  height: 300px;
+  border-radius: .5rem;
+  border: 2px solid #f0f0f0;
+  box-shadow: 0 0 30px #5a5a5a10;
+}
+
+/* Style form text */
+.box > .title {
+  width: 100%;
+  height: fit-content;
+  margin-top: 16px;
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0f0f0;
+}

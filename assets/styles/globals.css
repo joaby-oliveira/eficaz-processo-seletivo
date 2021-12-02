@@ -1,0 +1,62 @@
+@import url('./_variables.css');
+@import url('./_forms.css');
+@import url('./_reset.css');
+
+.container {
+  padding: 0 8rem;
+}
+
+.navbar {
+  margin: 2rem 8rem;
+}
+
+.title {
+  color: var(--color-primary);
+  font: 700 2rem var(--font-primary);
+}
+
+/* Button styles */
+.button {
+  padding: 1rem 2rem;
+  margin-right: 1rem;
+  outline: none;
+  border: none;
+  border-radius: .625rem;
+  font: 400 1rem var(--font-primary);
+  background: var(--color-primary);
+  color: #FFF;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 0 10px #00000010;
+  text-align: start;
+}
+
+.button + .button {
+  margin-top: .5rem;
+}
+
+.button:hover {
+  background: var(--color-primary-hover);
+  transition: none;
+}
+
+.button:active {
+  filter: opacity(.5);
+}
+
+/* My own display flex "framework" */
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.mainCenter {
+  justify-content: center;
+}
+
+.crossCenter {
+  align-items: center;
+}
