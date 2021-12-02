@@ -4,6 +4,7 @@
   border-radius: .5rem;
   border: 2px solid #f0f0f0;
   box-shadow: 0 0 30px #5a5a5a10;
+  display: none !important;
 }
 
 /* Style form text */
@@ -20,6 +21,10 @@
 .form {
   width: 100%;
   padding: 2rem;
+}
+
+.inputsContainer {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr  1fr;
   grid-template-areas: 
