@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;700&display=swap');
+
+:root {
+  --color-primary: #56CCF2;
+  --color-primary-hover: #34a1c5;
+  --color-success: #27AE60;
+  --color-success-hover: #14743C;
+  --color-danger: #DC3545;
+  --color-danger-hover: #97222d;
+  --font-primary: Montserrat, sans-serif;
+  --font-secondary: Montserrat, sans-serif;
+}
