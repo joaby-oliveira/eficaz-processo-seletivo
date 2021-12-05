@@ -14,6 +14,7 @@
 }
 
 /* Create hide class */
+p.hide,
 aside.hide {
   transition: 0.2s;
   display: none;
@@ -48,6 +49,12 @@ aside.hide {
   color: #555;
 }
 
+.successMessage {
+  text-align: center;
+  width: 100%;
+  padding-top: 1rem;
+  color: var(--color-success);
+}
 /* Button styles */
 .button {
   padding: 1rem 2rem;

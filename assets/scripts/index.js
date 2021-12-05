@@ -2,19 +2,34 @@
 const inputs = document.querySelectorAll('.inputBox input')
 const form = document.querySelector('form')
 
+// Show success message
+const successMessage = document.querySelector('.successMessage')
+
+function showMessage(message) {
+  successMessage.classList.remove('hide')
+  successMessage.innerHTML = message
+  setTimeout(() => {
+    successMessage.classList.add('hide')
+  }, 6000);
+}
+
+
 async function registerUser(userData) {
 
   try {
     const result = await fetch('https://estagio.eficazmarketing.com/api/user', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      body: JSON.stringify(userData)
     })
 
     const data = await result.json()
+
+    showMessage(data.message)
   } catch (e) {
     console.log(e)
   }
+
 }
 
 // Handle submit
