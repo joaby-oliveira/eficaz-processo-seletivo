@@ -29,56 +29,55 @@
       </button>
     </div>
 
-    <div class="register box flex column">
+    <aside class="register box flex column">
       <h1 class="title">CADASTRO</h1>
 
       <form class="form flex column crossEnd">
-
         <div class="inputsContainer">
           <div class="inputBox personalEmail flex column">
-            <label for="personalEmail" class="text">E-mail pessoal do candidato</label>
-            <input class="text" type="email" id="personalEmail" placeholder="exemplo@dominio.com">
+            <label for="seu_email" class="text">E-mail pessoal do candidato</label>
+            <input class="text" required type="email" id="seu_email" placeholder="exemplo@dominio.com">
           </div>
           <div class="inputBox name flex column">
-            <label for="name" class="text">Nome completo</label>
-            <input class="text" type="text" id="name" placeholder="Ex.: José da Silva">
+            <label for="nome" class="text">Nome completo</label>
+            <input class="text" required type="text" id="nome" placeholder="Ex.: José da Silva">
           </div>
           <div class="inputBox email flex column">
             <label for="email" class="text">E-mail</label>
-            <input class="text" type="email" id="email" placeholder="exemplo@dominio.com">
+            <input class="text" required type="email" id="email" placeholder="exemplo@dominio.com">
           </div>
           <div class="inputBox phone flex column">
-            <label for="phone" class="text">Telefone <small>(DDD)</small></label>
-            <input class="text" type="text" id="phone" placeholder="Somente números">
+            <label for="telefone" class="text">Telefone <small>(DDD)</small></label>
+            <input class="text" required maxlength="15" type="text" id="telefone" placeholder="Somente números">
           </div>
           <div class="inputBox street flex column">
-            <label for="street" class="text">Rua</label>
-            <input class="text" type="text" id="street" placeholder="Ex.: Rua dos Inválidos">
+            <label for="rua" class="text">Rua</label>
+            <input class="text" required type="text" id="rua" placeholder="Ex.: Rua dos Inválidos">
           </div>
           <div class="inputBox houseNumber flex column">
-            <label for="houseNumber" class="text">N.°</label>
-            <input class="text" type="number" id="houseNumber" placeholder="Ex.: 75">
+            <label for="numero" class="text">N.°</label>
+            <input class="text" required type="text" id="numero" placeholder="Ex.: 75">
           </div>
           <div class="inputBox acomplishment flex column">
-            <label for="acomplishment" class="text">Complemento</label>
-            <input class="text" type="text" id="acomplishment" placeholder="Ex.: Casa dos Fundos">
+            <label for="complemento" class="text">Complemento</label>
+            <input class="text" type="text" id="complemento" placeholder="Ex.: Casa dos Fundos">
           </div>
           <div class="inputBox district flex column">
-            <label for="district" class="text">Bairro</label>
-            <input class="text" type="text" id="district" placeholder="Ex.: Jardim Madalena">
+            <label for="bairro" class="text">Bairro</label>
+            <input class="text" type="text" id="bairro" placeholder="Ex.: Jardim Madalena">
           </div>
           <div class="inputBox CEP flex column">
-            <label for="CEP" class="text">Cidade</label>
-            <input class="text" type="text" id="CEP" placeholder="Somente números">
+            <label for="cep" class="text">CEP</label>
+            <input class="text" required maxlength="9" type="text" id="cep" placeholder="Somente números">
           </div>
           <div class="cityUF flex">
             <div class="inputBox city flex column">
-              <label for="city" class="text">Cidade</label>
-              <input class="text" type="text" id="city" placeholder="Ex.: Marília">
+              <label for="cidade" class="text">Cidade</label>
+              <input class="text" required type="text" id="cidade" placeholder="Ex.: Marília">
             </div>
             <div class="inputBox UF flex column">
-              <label for="UF" class="text">UF</label>
-              <input class="text" type="text" id="UF" placeholder="Ex.: SP">
+              <label for="uf" class="text">UF</label>
+              <input class="text" required maxlength="2" type="text" id="uf" placeholder="Ex.: SP">
             </div>
           </div>
         </div>
@@ -87,9 +86,9 @@
 
       </form>
 
-    </div>
+    </aside>
 
-    <div class="usersView hide box flex column">
+    <aside class="usersView hide box flex column">
       <h1 class="title">Lista de Cadastrados</h1>
       <table cellspacing="0" class="usersTable">
         <tr class="text header">
@@ -170,7 +169,7 @@
           </td>
         </tr>
       </table>
-    </div>
+    </aside>
   </main>
 </body>
 

@@ -14,7 +14,7 @@
 }
 
 /* Create hide class */
-div.hide {
+aside.hide {
   transition: 0.2s;
   display: none;
 }

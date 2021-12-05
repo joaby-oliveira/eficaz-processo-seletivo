@@ -28,7 +28,7 @@
     flex-direction: column;
   }
 
-  div.usersView {
+  aside.usersView {
     overflow-x: scroll;
   }
 }
