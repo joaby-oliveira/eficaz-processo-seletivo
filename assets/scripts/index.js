@@ -1,49 +1,7 @@
 // Variables
 const inputs = document.querySelectorAll('.inputBox input')
 const form = document.querySelector('form')
-
-// Show success message
-const successMessage = document.querySelector('.successMessage')
-
-function showMessage(message) {
-  successMessage.classList.remove('hide')
-  successMessage.innerHTML = message
-  setTimeout(() => {
-    successMessage.classList.add('hide')
-  }, 6000);
-}
-
-
-async function registerUser(userData) {
-
-  try {
-    const result = await fetch('https://estagio.eficazmarketing.com/api/user', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(userData)
-    })
-
-    const data = await result.json()
-
-    showMessage(data.message)
-  } catch (e) {
-    console.log(e)
-  }
-
-}
-
-// Handle submit
-form.addEventListener('submit', (e) => {
-  e.preventDefault()
-
-  const data = {}
-
-  inputs.forEach(input => {
-    data[input.id] = input.value
-  })
-
-  registerUser(data)
-})
+const baseUrl = 'https://estagio.eficazmarketing.com/api/'
 
 // Validating data and masks
 const masks = {
@@ -104,3 +62,124 @@ registerButton.addEventListener('click', () => {
 usersViewButton.addEventListener('click', () => {
   showUsersView()
 })
+
+// Register user data in api
+async function registerUser(userData) {
+
+  try {
+    const result = await fetch(`${baseUrl}user`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(userData)
+    })
+
+    const data = await result.json()
+
+    showUsers()
+    showMessage(data.message)
+  } catch (e) {
+    console.log(e)
+  }
+
+}
+
+// Handle register user submit
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  const data = {}
+
+  inputs.forEach(input => {
+    data[input.id] = input.value
+  })
+
+  registerUser(data)
+})
+
+// Retrieve user data from api
+async function getUsers() {
+  const result = await fetch(`${baseUrl}user`)
+
+  const data = await result.json()
+  console.log(data)
+  return data
+}
+
+async function showUsers() {
+
+  const users = await getUsers()
+  users.reverse()
+
+  const usersTable = document.querySelector('.usersTable')
+  const usersElements = document.querySelectorAll('.user')
+
+  usersElements.forEach(user => {
+    usersTable.removeChild(user)
+  })
+
+  users.forEach(user => {
+
+    const userElement = document.createElement('tr')
+    userElement.classList.add('text')
+    userElement.classList.add('user')
+
+    const name = document.createElement('td')
+    name.innerHTML = user.nome
+
+    const email = document.createElement('td')
+    email.innerHTML = user.email
+
+    const address = document.createElement('td')
+    address.innerHTML = `${user.rua}, ${user.numero} ${user.bairro} ${user.cep} ${user.cidade}-${user.uf}`
+
+    const phone = document.createElement('td')
+    phone.innerHTML = `${user.telefone}`
+
+
+    const buttonContainerParent = document.createElement('td')
+    
+    // Buttons container
+    const buttonContainer = document.createElement('div')
+    buttonContainer.classList.add('flex')
+
+    // Buttons
+    const editButton = document.createElement('button')
+    editButton.innerHTML = "Editar"
+    editButton.classList.add('actionButton')
+    editButton.classList.add('edit')
+    
+    // Buttons
+    const deleteButton = document.createElement('a')
+    deleteButton.innerHTML = "Deletar"
+    deleteButton.classList.add('actionButton')
+    deleteButton.classList.add('delete')
+
+    buttonContainerParent.appendChild(buttonContainer)
+    buttonContainer.appendChild(editButton)
+    buttonContainer.appendChild(deleteButton)
+
+    userElement.appendChild(name)
+    userElement.appendChild(email)
+    userElement.appendChild(address)
+    userElement.appendChild(phone)
+    userElement.appendChild(buttonContainerParent)
+
+    usersTable.appendChild(userElement)
+  })
+
+}
+
+showUsers()
+
+
+
+// Show success message
+const successMessage = document.querySelector('.successMessage')
+
+function showMessage(message) {
+  successMessage.classList.remove('hide')
+  successMessage.innerHTML = message
+  setTimeout(() => {
+    successMessage.classList.add('hide')
+  }, 6000);
+}
