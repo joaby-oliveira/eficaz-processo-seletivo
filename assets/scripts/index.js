@@ -96,6 +96,15 @@ form.addEventListener('submit', (e) => {
   registerUser(data)
 })
 
+// Create handle button functions
+async function deleteUsers(id) {
+  const result = await fetch(`${baseUrl}user/${id}`, {
+    method: 'DELETE'
+  })
+  const data = await result.json()
+  return data
+}
+
 // Retrieve user data from api
 async function getUsers() {
   const result = await fetch(`${baseUrl}user`)
@@ -165,13 +174,18 @@ async function showUsers() {
     userElement.appendChild(buttonContainerParent)
 
     usersTable.appendChild(userElement)
+
+    deleteButton.addEventListener('click', async _ => {
+      const result = await deleteUsers(user.id)
+      showMessage(result.message)
+      showUsers()
+    })
+    
   })
 
 }
 
 showUsers()
-
-
 
 // Show success message
 const successMessage = document.querySelector('.successMessage')
