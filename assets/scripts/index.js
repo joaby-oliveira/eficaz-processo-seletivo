@@ -2,7 +2,7 @@
 const inputs = document.querySelectorAll('.inputBox input')
 const form = document.querySelector('form')
 
-async function registerUser(data) {
+async function registerUser(userData) {
 
   const result = await fetch('https://estagio.eficazmarketing.com/api/user', {
     method: 'POST',
@@ -10,7 +10,7 @@ async function registerUser(data) {
     body: JSON.stringify(data)
   })
 
-  const test = await result.json()
+  const data = await result.json()
 }
 
 // Handle submit
