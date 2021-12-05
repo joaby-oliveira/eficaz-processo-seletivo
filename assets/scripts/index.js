@@ -4,13 +4,17 @@ const form = document.querySelector('form')
 
 async function registerUser(userData) {
 
-  const result = await fetch('https://estagio.eficazmarketing.com/api/user', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  })
+  try {
+    const result = await fetch('https://estagio.eficazmarketing.com/api/user', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
 
-  const data = await result.json()
+    const data = await result.json()
+  } catch (e) {
+    console.log(e)
+  }
 }
 
 // Handle submit
