@@ -12,6 +12,12 @@
   margin: 2rem 8rem;
 }
 
+/* Create hide class */
+div.hide {
+  transition: 0.2s;
+  display: none;
+}
+
 /* Style form box container */
 .box {
   flex: 1;
