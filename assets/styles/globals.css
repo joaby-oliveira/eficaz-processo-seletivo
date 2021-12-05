@@ -2,6 +2,7 @@
 @import url('./_forms.css');
 @import url('./_reset.css');
 @import url('./_usersView.css');
+@import url('./_mobile.css');
 
 .container {
   padding: 0 8rem 4rem 8rem;

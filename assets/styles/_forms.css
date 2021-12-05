@@ -70,6 +70,7 @@
   transition: 0.2s;
   font-size: .875rem;
   color: #626262;
+  width: 100%;
 }
 
 .inputBox input:hover {
