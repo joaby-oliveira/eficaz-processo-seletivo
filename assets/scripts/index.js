@@ -1,16 +1,26 @@
 const registerButton = document.querySelector('#register')
 const usersViewButton = document.querySelector('#usersView')
 
+
+
+// Change between "pages" logic
 const register = document.querySelector('.register')
 const usersView = document.querySelector('.usersView')
 
-registerButton.addEventListener('click', () => {
+function showRegister(){
   register.classList.remove('hide')
   usersView.classList.add('hide')
-  console.log(usersView);
+}
+
+function showUsersView(){
+  register.classList.add('hide')
+  usersView.classList.remove('hide')
+}
+
+registerButton.addEventListener('click', () => {
+  showRegister()
 })
 
 usersViewButton.addEventListener('click', () => {
-  register.classList.add('hide')
-  usersView.classList.remove('hide')
+  showUsersView()
 })
