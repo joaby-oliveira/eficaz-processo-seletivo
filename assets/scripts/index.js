@@ -3,6 +3,12 @@ const inputs = document.querySelectorAll('.inputBox input')
 const registerForm = document.querySelector('.register .form')
 const editForm = document.querySelector('.updateUserContainer .form')
 const baseUrl = 'https://estagio.eficazmarketing.com/api/'
+const formTitle = document.querySelector('.register .title')
+const formButton = document.querySelector('.form .buttonSubmit')
+
+let update = {
+  userId: null
+}
 
 // Validating data and masks
 const masks = {
@@ -90,19 +96,51 @@ async function registerUser(userData) {
 
 }
 
+// Update user data in api
+async function updateUser(userData) {
+
+  try {
+    const result = await fetch(`${baseUrl}user/${userData.id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(userData)
+    })
+
+    const data = await result.json()
+
+    showUsers()
+    showMessage(data.message)
+
+    update.userId = null
+    // Change form title from register to edit
+    formTitle.innerHTML = "Cadastrar"
+    // Create an edit button
+    formButton.innerHTML = "Cadastrar"
+  } catch (e) {
+    console.log(e)
+  }
+
+}
+
 // Handle register user submit
 registerForm.addEventListener('submit', (e) => {
-
+  // If update is not true then it saves the data
   e.preventDefault()
-
   const data = {}
 
   inputs.forEach(input => {
     data[input.id] = input.value
   })
 
-  registerUser(data)
-  resetForm()
+  if (!update.userId) {
+    registerUser(data)
+    resetForm()
+    console.log('registro')
+  } else {
+    updateUser({ ...data, id: update.userId })
+    resetForm()
+    console.log('edição')
+  }
 })
 
 // Create handle button functions
@@ -155,7 +193,7 @@ async function showUsers() {
 
 
     const buttonContainerParent = document.createElement('td')
-    
+
     // Buttons container
     const buttonContainer = document.createElement('div')
     buttonContainer.classList.add('flex')
@@ -165,7 +203,7 @@ async function showUsers() {
     editButton.innerHTML = "Editar"
     editButton.classList.add('actionButton')
     editButton.classList.add('edit')
-    
+
     // Buttons
     const deleteButton = document.createElement('a')
     deleteButton.innerHTML = "Deletar"
@@ -191,9 +229,22 @@ async function showUsers() {
     })
 
     editButton.addEventListener('click', async _ => {
-      const user = getUsers(user.id)
+      update.userId = user.id
+
+      // Change form title from register to edit
+      formTitle.innerHTML = "Editar"
+
+      // Set data in inputs
+      inputs.forEach(input => {
+        input.value = user[input.id]
+      })
+
+      // Create an edit button
+      formButton.innerHTML = "Editar"
+
+      showRegister()
     })
-    
+
   })
 
 }
