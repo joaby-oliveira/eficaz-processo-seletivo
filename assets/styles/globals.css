@@ -84,6 +84,10 @@ aside.hide {
   background: var(--color-primary);
 }
 
+.buttonDefault img {
+  margin-right: 1rem;
+}
+
 .buttonDefault + .buttonDefault {
   margin-top: .5rem;
 }
