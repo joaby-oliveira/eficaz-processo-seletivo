@@ -49,12 +49,14 @@ aside.hide {
   color: #555;
 }
 
+/* Sucess message */
 .successMessage {
   text-align: center;
   width: 100%;
   padding-top: 1rem;
   color: var(--color-success);
 }
+
 /* Button styles */
 .button {
   padding: 1rem 2rem;

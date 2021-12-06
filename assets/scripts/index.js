@@ -1,6 +1,7 @@
 // Variables
 const inputs = document.querySelectorAll('.inputBox input')
-const form = document.querySelector('form')
+const registerForm = document.querySelector('.register .form')
+const editForm = document.querySelector('.updateUserContainer .form')
 const baseUrl = 'https://estagio.eficazmarketing.com/api/'
 
 // Validating data and masks
@@ -37,6 +38,12 @@ inputs.forEach(input => {
     target.value = masks[field](target.value)
   })
 })
+
+function resetForm() {
+  inputs.forEach(input => {
+    input.value = ""
+  })
+}
 
 // Change between "pages" logic
 const register = document.querySelector('.register')
@@ -84,7 +91,8 @@ async function registerUser(userData) {
 }
 
 // Handle register user submit
-form.addEventListener('submit', (e) => {
+registerForm.addEventListener('submit', (e) => {
+
   e.preventDefault()
 
   const data = {}
@@ -94,6 +102,7 @@ form.addEventListener('submit', (e) => {
   })
 
   registerUser(data)
+  resetForm()
 })
 
 // Create handle button functions
@@ -179,6 +188,10 @@ async function showUsers() {
       const result = await deleteUsers(user.id)
       showMessage(result.message)
       showUsers()
+    })
+
+    editButton.addEventListener('click', async _ => {
+      const user = getUsers(user.id)
     })
     
   })
