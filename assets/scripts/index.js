@@ -186,7 +186,7 @@ async function showUsers() {
     email.innerHTML = user.email
 
     const address = document.createElement('td')
-    address.innerHTML = `${user.rua}, ${user.numero} ${user.bairro} ${user.cep} ${user.cidade}-${user.uf}`
+    address.innerHTML = `${user.rua}, ${user.numero} ${user.complemento ? user.complemento : ''} ${user.bairro ? user.bairro : ''} ${user.cep}  ${user.cidade}-${user.uf}`
 
     const phone = document.createElement('td')
     phone.innerHTML = `${user.telefone}`
